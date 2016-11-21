@@ -1,0 +1,330 @@
+package model;
+
+import java.util.Date;
+import diagram.GUIInterface;
+
+//
+//In my function they all currently return void because I didn't want to start the implementation it just has some ideas
+//
+//Sally Halal
+class Bank
+{
+	private int id;
+	private String Title;
+	private String Address;
+	private String code;
+	public void getAllCustomers(){}
+	public void getAllEmployees(){}
+	public void getInfo(Account ac){}
+	public void addEmplyee(Employee E){}
+	public void addAccount(Account Ac){}
+	public void removeEmplyee(Employee E){}
+	public void removeAccount(Account Ac){}
+	
+}
+class Person{
+	private int id;
+	private String FirstName;
+	private String LastName;
+	private String Address;
+	private String email;
+	private String contactNumber;
+	
+}
+
+association AccountinBank {
+	* Account p;
+	1 Bank b;
+	
+}
+class Employee extends Person
+{
+	private int Salary;
+	private String Type;
+	private String Position;
+	public void getBonus(int amount){}
+}
+
+association EmployeeinBank {
+	* Employee ep;
+	1 Bank b;
+}
+class Customer extends Person
+{
+	
+}
+
+association CustomerHasAccount{
+	1..2 Customer c;
+	1..* Account ac;
+}
+
+
+ class Account{
+	private int AccountNumber;
+	private String CurrencyCode;
+	private int maxLimit;
+	private String Swift;
+	public void checkBalance(){}
+	public void withdrawal(){}
+	public void automaticMonthlyFee(){}
+	
+}
+
+class OnlineAccount {
+	private String UserName;
+	private String password;
+	
+}
+
+association AccounthasOnline{
+	0..1 OnlineAccount oa;
+	1 Account ac;
+}
+class CreditAccount extends Account{
+	private int credit;
+	private int minlimit;
+	public void checkCredit(){}
+}
+
+composition AccountHasBalance{
+	container Account acc;
+	1 Balance b;
+}
+composition AccountHasBankCard{
+	container Account acc;
+	1 BankCard bc;
+}
+composition AccountHasLoan{
+	container Account acc;
+	0..4 Loans l;
+}
+class Balance
+{
+	private int AvailableAmount;
+	private int FreezedAmount;
+	private int TotalAmount;
+}
+class Loans{
+	private int id;
+	private int limit;
+	private String experation_date;
+	private String taken_date;
+	private int amount;
+	private int monthlypaid;
+	public void checkpaidamount(int x){}
+}
+
+class BankCard{
+	private int id;
+	private int pincode;
+	private int secureid;
+	private int experationMonth;
+	private int experationYear;
+	
+	
+}
+signal InsertCard;
+signal infoEntered;
+signal done;
+class ATM{
+	boolean PinCodeCorrect;
+	boolean AmountAccepted;
+	String Service;
+	initial Init;
+	state Ready;
+	state OutputCard;
+	state RetrieveBankCardinfo;
+	state ChooseService;
+	state Withdrawal;
+	choice CheckAmountPossible;
+	state OutputMoney;
+	choice CheckPinCode;
+	choice ServiceChosen;
+	state printBalanceInfo;
+	state mobileTopUp;
+	state Enternumber;
+	state Enteramount;
+	state Cancel;
+	GUIInterface gui ;
+	
+	ATM(){
+		gui = new diagram.GUI();
+	}
+	transition InitReady{
+		from Init;
+		to Ready;
+		effect{
+			gui.CheckPin();
+		}
+	}
+	
+	transition BankCardInserted{
+		from Ready;
+		to RetrieveBankCardinfo;
+		trigger InsertCard;
+		effect{
+			gui.CheckPin();
+			gui.printInquery("Card Inserted Please Enter Pin Code");
+		}
+	}
+	
+	
+	transition PinCodeEntered{
+		from RetrieveBankCardinfo;
+		to CheckPinCode;
+		trigger infoEntered;
+		effect{
+			
+			PinCodeCorrect = gui.getValue().equals("1111");
+		}
+	}
+	transition CheckPinTrue{
+		from CheckPinCode;
+		to ChooseService;
+		guard(PinCodeCorrect);
+		effect{
+			
+			gui.printInquery("Pin Correct Please Choose Service");
+		}
+	}
+	transition CheckPinFalse{
+		from CheckPinCode;
+		to OutputCard;
+		guard(else)
+		effect{
+			
+			gui.printInquery("Pin InCorrect  Press OK");
+		}
+	}
+	transition BackToReady{
+		from OutputCard;
+		to Ready;
+		trigger done;
+		effect{
+			gui.setValueNull();
+			gui.printInquery("Please Insert Card");
+		}
+	}
+	
+	transition SelectedChoice{
+		from ChooseService;
+		to ServiceChosen;
+		trigger infoEntered;
+		effect{
+			Service= gui.getServices();
+		}
+	}
+	transition WithdrawalService{
+		from ServiceChosen;
+		to Withdrawal;
+		guard(Service.equals("Withdrawal"));
+		effect{
+			gui.Withdrawal();
+			gui.printInquery("Please Insert Amount");
+		}
+	}
+	transition ChooseAmount{
+		from Withdrawal;
+		to CheckAmountPossible;
+		trigger infoEntered;
+		effect{
+			AmountAccepted = !(gui.getValue().equals("10000000"));
+		}
+	}
+	
+	transition AmountisAccepted{
+		from CheckAmountPossible;
+		to OutputMoney;
+		guard(AmountAccepted);
+		effect{
+			gui.printInquery("Money given Please Press OK");
+		}
+	}
+	transition BackToReady2{
+		from OutputMoney;
+		to OutputCard;
+		trigger done;
+		effect{
+			gui.printInquery("To Output card Press OK");
+		}
+		
+	}
+	transition AmountNotAccepted{
+		from CheckAmountPossible;
+		to OutputCard;
+		guard(else)
+		effect{
+			gui.printInquery("Amount Unavailable Press OK");
+		}
+	}
+	 transition BalanceInfo{
+		from ServiceChosen;
+		to printBalanceInfo;
+		guard(Service.equals("Get Balance information"));
+		effect{
+			gui.printInquery("Information Printed Press OK");
+		}
+	}
+	transition BackToReady3{
+		from printBalanceInfo;
+		to OutputCard;
+		trigger done;
+		effect{
+			gui.printInquery("To Output card Press OK");
+		}
+	}
+	transition MobileServiceChosen{
+		from ServiceChosen;
+		to Enternumber;
+		guard(Service.equals("Mobile Top-Up"));
+		effect{
+			gui.mobile();
+			gui.printInquery("Enter Phone Number");
+		}
+	}
+	transition MobileAmountWanted{
+		from Enternumber;
+		to Enteramount;
+		trigger infoEntered;
+		effect{
+			gui.mobileamount();
+			gui.printInquery("Enter Amount");
+		}
+	}
+	transition GetMobileCredit{
+		from Enteramount;
+		to mobileTopUp;
+		trigger infoEntered;
+		effect{
+			
+			gui.printInquery("Mobile Credited Press OK");
+		}
+	}
+	transition BackToReady4{
+		from mobileTopUp;
+		to OutputCard;
+		trigger done;
+		effect{
+			gui.printInquery("To Output card Press OK");
+		}
+	}
+	transition Cancelchosen{
+		from ServiceChosen;
+		to Cancel;
+		guard(Service.equals("Cancel"));
+		effect{
+			
+			gui.printInquery("Press Ok to Cancel");
+		}
+	}
+	transition BackToReady5{
+		from Cancel;
+		to OutputCard;
+		trigger done;
+		effect{
+			gui.printInquery("To Output card Press OK");
+		}
+	}
+	
+}

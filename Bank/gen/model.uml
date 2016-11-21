@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_LUTrQK-YEeaN3OalLXpF4A" name="Model">
+    <packageImport xmi:id="_LUvJEK-YEeaN3OalLXpF4A">
+      <importedPackage xmi:type="uml:Model" href="pathmap://TXTUML_STDLIB/stdlib.uml#_DE5UMHLCEeWVx4ZuxFlarQ"/>
+    </packageImport>
+    <packageImport xmi:id="_LVvOoK-YEeaN3OalLXpF4A">
+      <importedPackage xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LawRgK-YEeaN3OalLXpF4A" name="ATM" classifierBehavior="_LbR18K-YEeaN3OalLXpF4A">
+      <ownedAttribute xmi:id="_LawRga-YEeaN3OalLXpF4A" name="AmountAccepted">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Law4kK-YEeaN3OalLXpF4A" name="PinCodeCorrect">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Law4ka-YEeaN3OalLXpF4A" name="Service">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Law4kq-YEeaN3OalLXpF4A" name="gui"/>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_LbR18K-YEeaN3OalLXpF4A" name="ATM">
+        <region xmi:id="_LbSdAK-YEeaN3OalLXpF4A" name="ATM">
+          <transition xmi:id="_LbU5Qq-YEeaN3OalLXpF4A" name="InitReady" source="_LbSdAa-YEeaN3OalLXpF4A" target="_LbSdAq-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_LbVgUK-YEeaN3OalLXpF4A" name="BankCardInserted" source="_LbSdAq-YEeaN3OalLXpF4A" target="_LbTEEa-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbWHYK-YEeaN3OalLXpF4A" name="null_trigger" event="_LcTJoa-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbWHYa-YEeaN3OalLXpF4A" name="PinCodeEntered" source="_LbTEEa-YEeaN3OalLXpF4A" target="_LbTrIq-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbWucK-YEeaN3OalLXpF4A" name="null_trigger" event="_LchzIa-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbWuca-YEeaN3OalLXpF4A" name="CheckPinTrue" source="_LbTrIq-YEeaN3OalLXpF4A" target="_LbTEEq-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_LbXVgK-YEeaN3OalLXpF4A" name="CheckPinFalse" source="_LbTrIq-YEeaN3OalLXpF4A" target="_LbTEEK-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_LbX8kK-YEeaN3OalLXpF4A" name="BackToReady" source="_LbTEEK-YEeaN3OalLXpF4A" target="_LbSdAq-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbX8ka-YEeaN3OalLXpF4A" name="null_trigger" event="_LcfW4a-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbYjoK-YEeaN3OalLXpF4A" name="SelectedChoice" source="_LbTEEq-YEeaN3OalLXpF4A" target="_LbUSMK-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbYjoa-YEeaN3OalLXpF4A" name="null_trigger" event="_LchzIa-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbYjoq-YEeaN3OalLXpF4A" name="WithdrawalService" source="_LbUSMK-YEeaN3OalLXpF4A" target="_LbTEE6-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_LbZKsK-YEeaN3OalLXpF4A" name="ChooseAmount" source="_LbTEE6-YEeaN3OalLXpF4A" target="_LbTrIK-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbZxwK-YEeaN3OalLXpF4A" name="null_trigger" event="_LchzIa-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbZxwa-YEeaN3OalLXpF4A" name="AmountisAccepted" source="_LbTrIK-YEeaN3OalLXpF4A" target="_LbTrIa-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_LbaY0K-YEeaN3OalLXpF4A" name="BackToReady2" source="_LbTrIa-YEeaN3OalLXpF4A" target="_LbTEEK-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbaY0a-YEeaN3OalLXpF4A" name="null_trigger" event="_LcfW4a-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbaY0q-YEeaN3OalLXpF4A" name="AmountNotAccepted" source="_LbTrIK-YEeaN3OalLXpF4A" target="_LbTEEK-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_Lba_4K-YEeaN3OalLXpF4A" name="BalanceInfo" source="_LbUSMK-YEeaN3OalLXpF4A" target="_LbUSMa-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_Lbbm8K-YEeaN3OalLXpF4A" name="BackToReady3" source="_LbUSMa-YEeaN3OalLXpF4A" target="_LbTEEK-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_Lbbm8a-YEeaN3OalLXpF4A" name="null_trigger" event="_LcfW4a-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbcOAK-YEeaN3OalLXpF4A" name="MobileServiceChosen" source="_LbUSMK-YEeaN3OalLXpF4A" target="_LbUSM6-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_LbcOAa-YEeaN3OalLXpF4A" name="MobileAmountWanted" source="_LbUSM6-YEeaN3OalLXpF4A" target="_LbU5QK-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_Lbc1EK-YEeaN3OalLXpF4A" name="null_trigger" event="_LchzIa-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbdcIK-YEeaN3OalLXpF4A" name="GetMobileCredit" source="_LbU5QK-YEeaN3OalLXpF4A" target="_LbUSMq-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbdcIa-YEeaN3OalLXpF4A" name="null_trigger" event="_LchzIa-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbeDMK-YEeaN3OalLXpF4A" name="BackToReady4" source="_LbUSMq-YEeaN3OalLXpF4A" target="_LbTEEK-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbeDMa-YEeaN3OalLXpF4A" name="null_trigger" event="_LcfW4a-YEeaN3OalLXpF4A"/>
+          </transition>
+          <transition xmi:id="_LbeqQK-YEeaN3OalLXpF4A" name="Cancelchosen" source="_LbUSMK-YEeaN3OalLXpF4A" target="_LbU5Qa-YEeaN3OalLXpF4A"/>
+          <transition xmi:id="_LbfRUK-YEeaN3OalLXpF4A" name="BackToReady5" source="_LbU5Qa-YEeaN3OalLXpF4A" target="_LbTEEK-YEeaN3OalLXpF4A">
+            <trigger xmi:id="_LbfRUa-YEeaN3OalLXpF4A" name="null_trigger" event="_LcfW4a-YEeaN3OalLXpF4A"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_LbSdAa-YEeaN3OalLXpF4A" name="Init"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbSdAq-YEeaN3OalLXpF4A" name="Ready"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbTEEK-YEeaN3OalLXpF4A" name="OutputCard"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbTEEa-YEeaN3OalLXpF4A" name="RetrieveBankCardinfo"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbTEEq-YEeaN3OalLXpF4A" name="ChooseService"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbTEE6-YEeaN3OalLXpF4A" name="Withdrawal"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_LbTrIK-YEeaN3OalLXpF4A" name="CheckAmountPossible" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbTrIa-YEeaN3OalLXpF4A" name="OutputMoney"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_LbTrIq-YEeaN3OalLXpF4A" name="CheckPinCode" kind="choice"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_LbUSMK-YEeaN3OalLXpF4A" name="ServiceChosen" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbUSMa-YEeaN3OalLXpF4A" name="printBalanceInfo"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbUSMq-YEeaN3OalLXpF4A" name="mobileTopUp"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbUSM6-YEeaN3OalLXpF4A" name="Enternumber"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbU5QK-YEeaN3OalLXpF4A" name="Enteramount"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LbU5Qa-YEeaN3OalLXpF4A" name="Cancel"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_LbQAwK-YEeaN3OalLXpF4A" name="ATM"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LbhtkK-YEeaN3OalLXpF4A" name="Account">
+      <ownedAttribute xmi:id="_Lbhtka-YEeaN3OalLXpF4A" name="AccountNumber">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lbhtkq-YEeaN3OalLXpF4A" name="CurrencyCode">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LbiUoK-YEeaN3OalLXpF4A" name="Swift">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LbiUoa-YEeaN3OalLXpF4A" name="maxLimit">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lbn0MK-YEeaN3OalLXpF4A" name="b" type="_Lb5hAK-YEeaN3OalLXpF4A" aggregation="composite" association="_LbnNIK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Lbn0Ma-YEeaN3OalLXpF4A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LbobQK-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LbsFoK-YEeaN3OalLXpF4A" name="bc" type="_LcA1wK-YEeaN3OalLXpF4A" aggregation="composite" association="_LbrekK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LbsFoa-YEeaN3OalLXpF4A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LbsssK-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LbvwAK-YEeaN3OalLXpF4A" name="l" type="_LcWM8K-YEeaN3OalLXpF4A" aggregation="composite" association="_LbvI8K-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LbvwAa-YEeaN3OalLXpF4A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LbvwAq-YEeaN3OalLXpF4A" value="4"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LbyzUa-YEeaN3OalLXpF4A" name="oa" type="_LcZQQK-YEeaN3OalLXpF4A" association="_LbyzUK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LbyzUq-YEeaN3OalLXpF4A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LbzaYK-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb2dsK-YEeaN3OalLXpF4A" name="b" type="_Lb9LYK-YEeaN3OalLXpF4A" association="_Lb12oK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Lb3EwK-YEeaN3OalLXpF4A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Lb3Ewa-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcJ_sa-YEeaN3OalLXpF4A" name="c" type="_LcGVUK-YEeaN3OalLXpF4A" association="_LcJ_sK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LcJ_sq-YEeaN3OalLXpF4A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LcJ_s6-YEeaN3OalLXpF4A" value="2"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LbiUoq-YEeaN3OalLXpF4A" name="checkBalance"/>
+      <ownedOperation xmi:id="_LbiUo6-YEeaN3OalLXpF4A" name="withdrawal"/>
+      <ownedOperation xmi:id="_Lbi7sK-YEeaN3OalLXpF4A" name="automaticMonthlyFee"/>
+      <ownedOperation xmi:id="_Lbi7sa-YEeaN3OalLXpF4A" name="Account"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LbnNIK-YEeaN3OalLXpF4A" name="AccountHasBalance" memberEnd="_Lb5hAa-YEeaN3OalLXpF4A _Lbn0MK-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LbrekK-YEeaN3OalLXpF4A" name="AccountHasBankCard" memberEnd="_LcA1wa-YEeaN3OalLXpF4A _LbsFoK-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LbvI8K-YEeaN3OalLXpF4A" name="AccountHasLoan" memberEnd="_LcWM8a-YEeaN3OalLXpF4A _LbvwAK-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LbyzUK-YEeaN3OalLXpF4A" name="AccounthasOnline" memberEnd="_LbyzUa-YEeaN3OalLXpF4A _LcZQQa-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Lb12oK-YEeaN3OalLXpF4A" name="AccountinBank" memberEnd="_Lb9LYa-YEeaN3OalLXpF4A _Lb2dsK-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Lb5hAK-YEeaN3OalLXpF4A" name="Balance">
+      <ownedAttribute xmi:id="_Lb5hAa-YEeaN3OalLXpF4A" name="acc" type="_LbhtkK-YEeaN3OalLXpF4A" association="_LbnNIK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Lb5hAq-YEeaN3OalLXpF4A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Lb5hA6-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb5hBK-YEeaN3OalLXpF4A" name="AvailableAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb5hBa-YEeaN3OalLXpF4A" name="FreezedAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb5hBq-YEeaN3OalLXpF4A" name="TotalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_Lb6IEK-YEeaN3OalLXpF4A" name="Balance"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Lb9LYK-YEeaN3OalLXpF4A" name="Bank">
+      <ownedAttribute xmi:id="_Lb9LYa-YEeaN3OalLXpF4A" name="p" type="_LbhtkK-YEeaN3OalLXpF4A" association="_Lb12oK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Lb9LYq-YEeaN3OalLXpF4A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Lb9LY6-YEeaN3OalLXpF4A" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb9LZK-YEeaN3OalLXpF4A" name="Address">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb9LZa-YEeaN3OalLXpF4A" name="Title">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb9LZq-YEeaN3OalLXpF4A" name="code">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lb9LZ6-YEeaN3OalLXpF4A" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcQtYa-YEeaN3OalLXpF4A" name="ep" type="_LcMb8K-YEeaN3OalLXpF4A" association="_LcQtYK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LcRUcK-YEeaN3OalLXpF4A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LcRUca-YEeaN3OalLXpF4A" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_Lb9ycK-YEeaN3OalLXpF4A" name="getAllCustomers"/>
+      <ownedOperation xmi:id="_Lb9yca-YEeaN3OalLXpF4A" name="getAllEmployees"/>
+      <ownedOperation xmi:id="_Lb9ycq-YEeaN3OalLXpF4A" name="getInfo">
+        <ownedParameter xmi:id="_Lb9yc6-YEeaN3OalLXpF4A" name="ac" type="_LbhtkK-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Lb9ydK-YEeaN3OalLXpF4A" name="addEmplyee">
+        <ownedParameter xmi:id="_Lb9yda-YEeaN3OalLXpF4A" name="E" type="_LcMb8K-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Lb-ZgK-YEeaN3OalLXpF4A" name="addAccount">
+        <ownedParameter xmi:id="_Lb-Zga-YEeaN3OalLXpF4A" name="Ac" type="_LbhtkK-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Lb-Zgq-YEeaN3OalLXpF4A" name="removeEmplyee">
+        <ownedParameter xmi:id="_Lb-Zg6-YEeaN3OalLXpF4A" name="E" type="_LcMb8K-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Lb-ZhK-YEeaN3OalLXpF4A" name="removeAccount">
+        <ownedParameter xmi:id="_Lb-Zha-YEeaN3OalLXpF4A" name="Ac" type="_LbhtkK-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Lb-Zhq-YEeaN3OalLXpF4A" name="Bank"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcA1wK-YEeaN3OalLXpF4A" name="BankCard">
+      <ownedAttribute xmi:id="_LcA1wa-YEeaN3OalLXpF4A" name="acc" type="_LbhtkK-YEeaN3OalLXpF4A" association="_LbrekK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LcA1wq-YEeaN3OalLXpF4A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LcA1w6-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcA1xK-YEeaN3OalLXpF4A" name="experationMonth">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcA1xa-YEeaN3OalLXpF4A" name="experationYear">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcA1xq-YEeaN3OalLXpF4A" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcA1x6-YEeaN3OalLXpF4A" name="pincode">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcBc0K-YEeaN3OalLXpF4A" name="secureid">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LcBc0a-YEeaN3OalLXpF4A" name="BankCard"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcD5EK-YEeaN3OalLXpF4A" name="CreditAccount">
+      <generalization xmi:id="_LcFHMK-YEeaN3OalLXpF4A" general="_LbhtkK-YEeaN3OalLXpF4A"/>
+      <ownedAttribute xmi:id="_LcD5Ea-YEeaN3OalLXpF4A" name="credit">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcD5Eq-YEeaN3OalLXpF4A" name="minlimit">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LcD5E6-YEeaN3OalLXpF4A" name="checkCredit"/>
+      <ownedOperation xmi:id="_LcD5FK-YEeaN3OalLXpF4A" name="CreditAccount"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcGVUK-YEeaN3OalLXpF4A" name="Customer">
+      <generalization xmi:id="_LcHjcK-YEeaN3OalLXpF4A" general="_LccTkK-YEeaN3OalLXpF4A"/>
+      <ownedAttribute xmi:id="_LcKmwK-YEeaN3OalLXpF4A" name="ac" type="_LbhtkK-YEeaN3OalLXpF4A" association="_LcJ_sK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LcKmwa-YEeaN3OalLXpF4A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LcKmwq-YEeaN3OalLXpF4A" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LcG8YK-YEeaN3OalLXpF4A" name="Customer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LcJ_sK-YEeaN3OalLXpF4A" name="CustomerHasAccount" memberEnd="_LcJ_sa-YEeaN3OalLXpF4A _LcKmwK-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcMb8K-YEeaN3OalLXpF4A" name="Employee">
+      <generalization xmi:id="_LcNqEK-YEeaN3OalLXpF4A" general="_LccTkK-YEeaN3OalLXpF4A"/>
+      <ownedAttribute xmi:id="_LcMb8a-YEeaN3OalLXpF4A" name="Position">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcMb8q-YEeaN3OalLXpF4A" name="Salary">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcMb86-YEeaN3OalLXpF4A" name="Type">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcRUcq-YEeaN3OalLXpF4A" name="b" type="_Lb9LYK-YEeaN3OalLXpF4A" association="_LcQtYK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LcRUc6-YEeaN3OalLXpF4A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LcRUdK-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LcMb9K-YEeaN3OalLXpF4A" name="getBonus">
+        <ownedParameter xmi:id="_LcNDAK-YEeaN3OalLXpF4A" name="amount">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LcNDAa-YEeaN3OalLXpF4A" name="Employee"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_LcQtYK-YEeaN3OalLXpF4A" name="EmployeeinBank" memberEnd="_LcQtYa-YEeaN3OalLXpF4A _LcRUcq-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_LcTJoK-YEeaN3OalLXpF4A" name="InsertCard"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_LcTJoa-YEeaN3OalLXpF4A" name="InsertCard" signal="_LcTJoK-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcTwsK-YEeaN3OalLXpF4A" name="#InsertCard_factory">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_LcUXwa-YEeaN3OalLXpF4A" name="InsertCard" specification="_LcTwsa-YEeaN3OalLXpF4A"/>
+      <ownedOperation xmi:id="_LcTwsa-YEeaN3OalLXpF4A" name="InsertCard" isStatic="true" method="_LcUXwa-YEeaN3OalLXpF4A">
+        <ownedParameter xmi:id="_LcUXwK-YEeaN3OalLXpF4A" name="signal" type="_LcTJoK-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcWM8K-YEeaN3OalLXpF4A" name="Loans">
+      <ownedAttribute xmi:id="_LcWM8a-YEeaN3OalLXpF4A" name="acc" type="_LbhtkK-YEeaN3OalLXpF4A" association="_LbvI8K-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LcWM8q-YEeaN3OalLXpF4A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LcWM86-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcWM9K-YEeaN3OalLXpF4A" name="amount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcWM9a-YEeaN3OalLXpF4A" name="experation_date">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcW0AK-YEeaN3OalLXpF4A" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcW0Aa-YEeaN3OalLXpF4A" name="limit">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcW0Aq-YEeaN3OalLXpF4A" name="monthlypaid">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcW0A6-YEeaN3OalLXpF4A" name="taken_date">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LcW0BK-YEeaN3OalLXpF4A" name="checkpaidamount">
+        <ownedParameter xmi:id="_LcW0Ba-YEeaN3OalLXpF4A" name="x">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_LcW0Bq-YEeaN3OalLXpF4A" name="Loans"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcZQQK-YEeaN3OalLXpF4A" name="OnlineAccount">
+      <ownedAttribute xmi:id="_LcZQQa-YEeaN3OalLXpF4A" name="ac" type="_LbhtkK-YEeaN3OalLXpF4A" association="_LbyzUK-YEeaN3OalLXpF4A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LcZQQq-YEeaN3OalLXpF4A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LcZQQ6-YEeaN3OalLXpF4A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcZQRK-YEeaN3OalLXpF4A" name="UserName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LcZQRa-YEeaN3OalLXpF4A" name="password">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_LcZ3UK-YEeaN3OalLXpF4A" name="OnlineAccount"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LccTkK-YEeaN3OalLXpF4A" name="Person">
+      <ownedAttribute xmi:id="_LccTka-YEeaN3OalLXpF4A" name="Address">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LccTkq-YEeaN3OalLXpF4A" name="FirstName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LccTk6-YEeaN3OalLXpF4A" name="LastName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LccTlK-YEeaN3OalLXpF4A" name="contactNumber">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LccTla-YEeaN3OalLXpF4A" name="email">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Lcc6oK-YEeaN3OalLXpF4A" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_Lcc6oa-YEeaN3OalLXpF4A" name="Person"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_LcfW4K-YEeaN3OalLXpF4A" name="done"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_LcfW4a-YEeaN3OalLXpF4A" name="done" signal="_LcfW4K-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LcfW4q-YEeaN3OalLXpF4A" name="#done_factory">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_LcglAa-YEeaN3OalLXpF4A" name="done" specification="_LcfW46-YEeaN3OalLXpF4A"/>
+      <ownedOperation xmi:id="_LcfW46-YEeaN3OalLXpF4A" name="done" isStatic="true" method="_LcglAa-YEeaN3OalLXpF4A">
+        <ownedParameter xmi:id="_LcglAK-YEeaN3OalLXpF4A" name="signal" type="_LcfW4K-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_LchzIK-YEeaN3OalLXpF4A" name="infoEntered"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_LchzIa-YEeaN3OalLXpF4A" name="infoEntered" signal="_LchzIK-YEeaN3OalLXpF4A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LciaMK-YEeaN3OalLXpF4A" name="#infoEntered_factory">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_LcjBQa-YEeaN3OalLXpF4A" name="infoEntered" specification="_LciaMa-YEeaN3OalLXpF4A"/>
+      <ownedOperation xmi:id="_LciaMa-YEeaN3OalLXpF4A" name="infoEntered" isStatic="true" method="_LcjBQa-YEeaN3OalLXpF4A">
+        <ownedParameter xmi:id="_LcjBQK-YEeaN3OalLXpF4A" name="signal" type="_LchzIK-YEeaN3OalLXpF4A"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:id="_LVvOoa-YEeaN3OalLXpF4A">
+      <eAnnotations xmi:id="_LVvOoq-YEeaN3OalLXpF4A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Create xmi:id="_LbQn0K-YEeaN3OalLXpF4A" base_BehavioralFeature="_LbQAwK-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_Lbi7sq-YEeaN3OalLXpF4A" base_BehavioralFeature="_Lbi7sa-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_Lb6IEa-YEeaN3OalLXpF4A" base_BehavioralFeature="_Lb6IEK-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_Lb_AkK-YEeaN3OalLXpF4A" base_BehavioralFeature="_Lb-Zhq-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LcBc0q-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcBc0a-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LcEgIK-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcD5FK-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LcG8Ya-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcG8YK-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LcNDAq-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcNDAa-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LcTwsq-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcTwsa-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LcXbEK-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcW0Bq-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LcZ3Ua-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcZ3UK-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_Lcc6oq-YEeaN3OalLXpF4A" base_BehavioralFeature="_Lcc6oa-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_Lcf98K-YEeaN3OalLXpF4A" base_BehavioralFeature="_LcfW46-YEeaN3OalLXpF4A"/>
+  <standard:Create xmi:id="_LciaMq-YEeaN3OalLXpF4A" base_BehavioralFeature="_LciaMa-YEeaN3OalLXpF4A"/>
+</xmi:XMI>
